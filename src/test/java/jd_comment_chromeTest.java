@@ -37,7 +37,6 @@ public class jd_comment_chromeTest {
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
         WebDriver driver = new ChromeDriver();
         try {
-            return;
             //put the browser to the 2nd screen
             driver.manage().window().setPosition(new Point(-1000,1));
             driver.manage().window().maximize();
@@ -50,8 +49,15 @@ public class jd_comment_chromeTest {
             String[] account = readFileByLines(projectpath+ "\\res\\jd.txt");
             driver.findElement(By.id("loginname")).sendKeys(account[1]);
             driver.findElement(By.id("nloginpwd")).sendKeys(account[2]);
+
+            //sample to avoid acutal run
+            if (driver.findElement(By.id("loginsubmit")).isEnabled()) {
+                return;
+            }
+
             driver.findElement(By.id("loginsubmit")).click();
             //new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.linkText("ÆÀ¼Û")));
+
             //Iterate for each item to be commented
             while (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
                 driver.findElement(By.linkText("ÆÀ¼Û")).click();
