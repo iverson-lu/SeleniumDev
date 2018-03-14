@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 
@@ -54,8 +55,10 @@ public class jd_comment_chromeTest {
 
             //sample code to avoid the actual run
             if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
+
+                Date date = new Date();
                 File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/error.png"));
+                FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
                 return;
             }
 
