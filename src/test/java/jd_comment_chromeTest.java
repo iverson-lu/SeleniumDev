@@ -37,6 +37,7 @@ public class jd_comment_chromeTest {
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
         WebDriver driver = new ChromeDriver();
         try {
+            return;
             //put the browser to the 2nd screen
             driver.manage().window().setPosition(new Point(-1000,1));
             driver.manage().window().maximize();
