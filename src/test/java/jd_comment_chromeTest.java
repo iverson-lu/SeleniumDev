@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 
@@ -32,6 +33,7 @@ public class jd_comment_chromeTest {
     public void main() throws Exception {
         //t1234
         Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         int i, j;
         String projectpath = System.getProperty("user.dir") ;
         WebElement link;
@@ -57,7 +59,7 @@ public class jd_comment_chromeTest {
             //test code to avoid the actual run
             if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
                 File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
+                FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + sdf.format(date) + ".png"));
                 return;
             }
 
@@ -98,7 +100,8 @@ public class jd_comment_chromeTest {
             System.out.print (e);
             //capature error screenshot
             File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
+            FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + sdf.format(date) + ".png"));
+            return;
         } finally {
             driver.close();
         }
