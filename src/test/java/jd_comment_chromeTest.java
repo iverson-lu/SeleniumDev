@@ -53,9 +53,8 @@ public class jd_comment_chromeTest {
             driver.findElement(By.id("loginsubmit")).click();
             //new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.linkText("ÆÀ¼Û")));
 
-            //sample code to avoid the actual run
+            //test code to avoid the actual run
             if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
-
                 Date date = new Date();
                 File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
