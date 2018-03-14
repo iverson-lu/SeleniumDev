@@ -49,14 +49,15 @@ public class jd_comment_chromeTest {
             String[] account = readFileByLines(projectpath+ "\\res\\jd.txt");
             driver.findElement(By.id("loginname")).sendKeys(account[1]);
             driver.findElement(By.id("nloginpwd")).sendKeys(account[2]);
-
-            //sample to avoid acutal run
-            if (driver.findElement(By.id("loginsubmit")).isEnabled()) {
-                return;
-            }
-
             driver.findElement(By.id("loginsubmit")).click();
             //new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.linkText("ÆÀ¼Û")));
+
+            //sample code to avoid the actual run
+            if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
+                File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/error.png"));
+                return;
+            }
 
             //Iterate for each item to be commented
             while (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
