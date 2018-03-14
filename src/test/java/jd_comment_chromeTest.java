@@ -31,6 +31,7 @@ public class jd_comment_chromeTest {
     @Test
     public void main() throws Exception {
         //t1234
+        Date date = new Date();
         int i, j;
         String projectpath = System.getProperty("user.dir") ;
         WebElement link;
@@ -55,7 +56,6 @@ public class jd_comment_chromeTest {
 
             //test code to avoid the actual run
             if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
-                Date date = new Date();
                 File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
                 return;
@@ -98,7 +98,7 @@ public class jd_comment_chromeTest {
             System.out.print (e);
             //capature error screenshot
             File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/error.png"));
+            FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + date.toString() + ".png"));
         } finally {
             driver.close();
         }
