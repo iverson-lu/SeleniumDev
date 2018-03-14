@@ -29,7 +29,7 @@ public class jd_comment_chromeTest {
 
     @Test
     public void main() throws Exception {
-        //t1
+        //t12
         int i, j;
         String projectpath = System.getProperty("user.dir") ;
         WebElement link;
