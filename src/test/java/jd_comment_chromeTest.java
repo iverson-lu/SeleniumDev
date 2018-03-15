@@ -62,7 +62,7 @@ public class jd_comment_chromeTest {
             //new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.linkText("ÆÀ¼Û")));
 
             //test code to avoid the actual run
-            if (driver.findElements(By.linkText("ÆÀ¼Û")).size() > 0) {
+            if (driver.findElements(By.linkText("ÆÀ¼Û")).size() != 0) {
                 File screenshotFile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + sdf.format(date) + ".png"));
                 return;
