@@ -43,7 +43,7 @@ public class jd_comment_chromeTest {
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--proxy-server=web-proxy.rose.hp.com:8080");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
 
         try {
             //put the browser to the 2nd screen
