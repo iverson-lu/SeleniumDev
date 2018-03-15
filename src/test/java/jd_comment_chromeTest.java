@@ -51,7 +51,7 @@ public class jd_comment_chromeTest {
             driver.manage().window().maximize();
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-            driver.get("https://club.jd.com/mycomments.aspx");
+            driver.get("http://club.jd.com/mycomments.aspx");
             //login
             driver.findElement(By.linkText("ÕË»§µÇÂ¼")).click();
             //Read account credential from file
