@@ -42,7 +42,7 @@ public class jd_comment_chromeTest {
 
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--proxy-server=%s web-proxy.rose.hp.com:8080");
         WebDriver driver = new ChromeDriver();
 
         try {
@@ -51,7 +51,7 @@ public class jd_comment_chromeTest {
             driver.manage().window().maximize();
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-            driver.get("http://club.jd.com/mycomments.aspx");
+            driver.get("https://club.jd.com/mycomments.aspx");
             //login
             driver.findElement(By.linkText("ÕË»§µÇÂ¼")).click();
             //Read account credential from file
