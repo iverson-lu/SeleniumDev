@@ -42,7 +42,7 @@ public class jd_comment_chromeTest {
 
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--proxy-server=%s web-proxy.rose.hp.com:8080");
+        options.addArguments("--proxy-server=web-proxy.rose.hp.com:8080");
         WebDriver driver = new ChromeDriver();
 
         try {
