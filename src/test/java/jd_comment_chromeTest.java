@@ -4,6 +4,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,7 +41,15 @@ public class jd_comment_chromeTest {
         WebElement link;
         String comment = "东西不错";
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
-        WebDriver driver = new ChromeDriver();
+
+        // 创建DesiredCapabilities类的一个对象实例
+        DesiredCapabilities cap= DesiredCapabilities.chrome();
+
+        // 设置变量ACCEPT_SSL_CERTS的值为True
+        cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+
+        WebDriver driver = new ChromeDriver(cap);
+
         try {
             //put the browser to the 2nd screen
             driver.manage().window().setPosition(new Point(-1000,1));
