@@ -40,9 +40,8 @@ public class jd_comment_chromeTest {
         String projectpath = System.getProperty("user.dir") ;
         WebElement link;
         String comment = "¶«Î÷²»´í";
-
-
         System.setProperty("webdriver.chrome.driver", projectpath + "\\res\\ChromeDriver.exe");
+        //specify the proxy of chromedriver
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--proxy-server=web-proxy.rose.hp.com:8080");
         WebDriver driver = new ChromeDriver(options);
@@ -110,7 +109,7 @@ public class jd_comment_chromeTest {
             FileUtils.copyFile(screenshotFile, new File(projectpath + "/screenshot/e" + sdf.format(date) + ".png"));
             return;
         } finally {
-            driver.close();
+            driver.quit();
         }
     }
 
